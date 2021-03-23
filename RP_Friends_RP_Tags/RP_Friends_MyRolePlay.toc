@@ -1,0 +1,15 @@
+## Interface: 90005
+## Version: 9.0.5.6 beta 1
+## Title: rp|cffdd33aaTags|r RP Module: MyRolePlay
+## Author: Oraibi-MoonGuard
+## Notes: rp|cffdd33aaTags|r integration module for MyRolePlay
+## RequiredDeps: RP_Tags, MyRolePlay
+## DefaultState: Enabled
+## X-URL: http://spindrift.games/rptags
+## X-RPQModuleId: mrp
+## X-RPQModuleType: rpClient
+## X-RPQVersion: 1
+## X-RPQModuleTarget: MyRolePlay
+## X-Child-Of: RP_Tags
+
+load.xml

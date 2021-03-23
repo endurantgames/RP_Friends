@@ -2,19 +2,11 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
     xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
 	
-    <Include file="Lib\load.xml"         />
-    <Script  file="Core\init.lua"        />
-    <Script  file="Core\const.lua"       />
-    <Include file="Locale\load.xml"      />
-    <Include file="Core\grid.lua"        />
-    <Script  file="Core\settings.lua"    />
-    <Script  file="Core\config.lua"      />
-    <Script  file="Core\friendslist.lua" />
-    <Include file="Utils\load.xml"       />
-    <Script  file="Core\display.lua"     />
-    <Script  file="Core\options.lua"     />
-    <Script  file="Core\keybinds.lua"    />
-    <Script  file="Core\button.lua"      />
-    <Script  file="Core\events.lua"      />
+    <Script  file="RPQ.lua"         />
+    <Include file="Lib\load.xml"    />
+    <Script  file="RP_Friends.lua"  />
+    <Include file="Core\load.xml"   />
+    <Include file="Locale\load.xml" />
+    <Include file="Utils\load.xml"  />
 
 </Ui>

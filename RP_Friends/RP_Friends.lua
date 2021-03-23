@@ -1,0 +1,132 @@
+-- RP Friends
+-- by Oraibi, Moon Guard (US) server
+-- ------------------------------------------------------------------------------
+-- This work is licensed under the Creative Commons Attribution 4.0 International
+-- (CC BY 4.0) license.
+
+local addOnName, RP_FRIENDS = ...;
+RP_FRIENDS.addOnName = addOnName;
+
+local RPQ = _G["RP_ADDON_QUEUE"];
+if not RPQ then error(addOnName .. " requires RPQ"); end;
+
+local Queue = RPQ:New(addOnName);
+Queue:NewModuleType("dataSource");
+
+--[[ 
+  Queue:NewModuleType("rpClient");
+  Queue:NewModuleType("unitFrames");
+--]]
+
+local RPQ_EVENTS = 
+{ "ADDON_INIT",
+    "INIT_DATA",         "INIT_CACHE",     "INIT_LOCALE",                 -- arbitrary:
+      "CORE_STATE",      "DATA_CONST",                                      "MODULE_A",      
+    "INIT_UTILS",        "UTILS_LOCALE",   "DATA_LOCALE",  "UTILS_MODULES", "MODULE_B", 
+      "UTILS_CONFIG",    "UTILS_TEXT",     "UTILS_COLOR",  "UTILS_KEYBIND", "MODULE_C",      
+      "UTILS_FORMATS",   "UTILS_PARSE",    "UTILS_GET",                     "MODULE_D", 
+    "INIT_OPTIONS",      "UTILS_OPTIONS",                                   "MODULE_F",
+      "OPTIONS_GENERAL", "OPTIONS_COLORS", "OPTIONS_HELP", "OPTIONS_ABOUT", "MODULE_G",      
+      "CORE_OPTIONS",                                                       "MODULE_H",
+    "UTILS_HELP",        "CORE_HELP",                                       "MODULE_I",      
+      "CORE_SLASH",      "CORE_KEYBIND",                                    "MODULE_J",     
+  "ADDON_LOAD",
+};
+--[[ 
+{ "ADDON_INIT",        
+    "INIT_DATA",        "INIT_CACHE",     "INIT_LOCALE",                 -- arbitrary:
+      "CORE_STATE",     "DATA_CONST",                                       "MODULE_A",      
+    "INIT_UTILS",       "UTILS_LOCALE",   "DATA_LOCALE",  "UTILS_MODULES",  "MODULE_B", 
+      "UTILS_CONFIG",   "UTILS_TEXT",     "UTILS_COLOR",  "UTILS_KEYBIND",  "MODULE_C",      
+      "UTILS_FORMATS",  "UTILS_PARSE",    "UTILS_GET",    "UTILS_FRAMES",   "MODULE_D", 
+      "UTILS_TAGS",     "DATA_TAGS",                                        "MODULE_E",     
+    "INIT_OPTIONS",     "UTILS_OPTIONS",                                    "MODULE_F",
+      "OPTIONS_GENERAL", "OPTIONS_COLORS", "OPTIONS_HELP", "OPTIONS_ABOUT", "MODULE_G",      
+      "CORE_OPTIONS",                                                       "MODULE_H",
+    "UTILS_HELP",       "CORE_HELP",                                        "MODULE_I",      
+      "CORE_SLASH",     "CORE_KEYBIND",                                     "MODULE_J",     
+  "ADDON_LOAD",        
+};
+--]]
+
+Queue:NewEvents(RPQ_EVENTS);
+Queue:SetOrder(RPQ_EVENTS);
+
+--- error handling
+
+local POPUP = "RP_FRIENDS_STARTUP_ERROR";
+
+StaticPopupDialogs[POPUP] = 
+{ button2 = "I Understand",
+  showAlert = true,
+  whileDead = true,
+  timeout = 0,
+  wide = true,
+  OnShow = 
+    function(self, data)
+      self.text:SetJustifyH("LEFT");
+      self.text:SetSpacing(3);
+    end,
+};
+
+Queue:OnError(
+  function(eventResult, eventName)
+    if   eventResult and type(eventResult) == "table" and eventResult.error
+    then local errorMessage = "|cffff3333" .. RP_FRIENDS.metadata.Title .. " Startup Error|r\n\n" .. (eventResult.errorMessage or "Unknown error");
+         if   eventResult.changeAddOns
+         then StaticPopupDialogs[POPUP].button1 = "AddOn List"
+              StaticPopupDialogs[POPUP].OnAccept = 
+                function(self) 
+                  if ACP 
+                  then ACP:ToggleUI() 
+                  else AddonList_Show() 
+                  end 
+                  self:Hide();
+                end;
+         end;
+              
+         StaticPopupDialogs[POPUP].text = errorMessage;
+         StaticPopup_Show(POPUP);
+    end;
+  end);
+
+RPTAGS.queue = Queue;
+
+local EventsFrame = CreateFrame("Frame");
+
+EventsFrame.Events = {};
+function EventsFrame.AddEvent(self, ...)
+  local paramsList = { ... };
+  local eventList = {};
+  for _, param in ipairs(paramsList)
+  do  if #eventList > 0 and type(param) == "function"
+      then 
+           for _, eventName in ipairs(eventList)
+           do  if   self.Events[eventName]
+               then table.insert(self.Events[eventName], param)
+               else self.Events[eventName] = { param };
+                    self:RegisterEvent(eventName);
+               end;
+           end;
+           eventList = {};
+     elseif type(param) == "string"
+     then table.insert(eventList, param)
+     end;
+  end;
+end;
+
+EventsFrame:SetScript("OnEvent",
+  function(self, event, ...) 
+    if self.Events[event] and #self.Events[event] > 0
+    then for c, callback in ipairs(self.Events[event])
+         do callback(self, event, ...)
+         end;
+    else print("This event is registered but I don't know what you want me to do:", event);
+    end;
+  end
+);
+EventsFrame:AddEvent("PLAYER_LOGIN", function(self, event, ...) RPTAGS.queue:FireAll(); end);
+RP_FRIENDS.EventsFrame = EventsFrame;
+
+_G["RP_FRIENDS"] = RP_FRIENDS;
+

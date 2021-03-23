@@ -1,18 +1,12 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
     xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
-	
-    <!-- first the default language (enUS) -->
-         <Include file="enUS\Load_Locale.xml" />
 
-    <!-- then other langauges -->
-         <!-- Include file="esMX\Load_Locale.xml"  / -->
-         <!-- Include file="frFR\Load_Locale.xml"  / -->
-         <!-- Include file="enGB\Load_Locale.xml"  / -->
-         <!-- Include file="itIT\Load_Locale.xml"  / -->
-         <!-- Include file="tlhQo\Load_Locale.xml" / -->
-
-    <!-- then the loc() utility -->
-         <Script file="utils-locale.lua"/>
+    <Script file="enUS.lua"         /> <!-- first the default language -->
+    <!-- Script file="esMX.lua"  / --> <!-- then other langauges       -->
+    <!-- Script file="frFR.lua"  / -->
+    <!-- Script file="enGB.lua"  / -->
+    <!-- Script file="itIT.lua"  / -->
+    <!-- Script file="tlhQo.lua" / -->
 
 </Ui>

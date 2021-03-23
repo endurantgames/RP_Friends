@@ -1,8 +1,8 @@
 <Bindings>
   <Binding name="RP_FRIENDS_FRIENDSLIST" header="RP_FRIENDS" category="ADDONS">
-    RP_FRIENDS.keybinds.friendsList();
+    RP_FRIENDS.utils.keybind.run("RP_FRIENDS_FRIENDSLIST");
   </Binding>
   <Binding name="RP_FRIENDS_OPTIONS" category="ADDONS">
-    RP_FRIENDS.keybinds.options();
+    RP_FRIENDS.utils.keybind.run("RP_FRIENDS_OPTIONS");
   </Binding>
 </Bindings>

@@ -1,15 +1,15 @@
 ## Interface: 90005
-## Version: 9.0.5.6 beta 1
-## Title: rp|cffdd33aaTags|r RP Module: MyRolePlay
+## Version: 9.0.5.0 beta 1
+## Title: rp|cffdd33aaFriends|r Data Source Module: rpTags
 ## Author: Oraibi-MoonGuard
-## Notes: rp|cffdd33aaTags|r integration module for MyRolePlay
-## RequiredDeps: RP_Tags, MyRolePlay
+## Notes: rp|cffdd33aaFriends|r integration module for rpTags
+## RequiredDeps: RP_Friends, RP_Tags
 ## DefaultState: Enabled
-## X-URL: http://spindrift.games/rptags
-## X-RPQModuleId: mrp
-## X-RPQModuleType: rpClient
+## X-URL: http://spindrift.games/rpfriends
+## X-RPQModuleId: rpfriends-rptags
+## X-RPQModuleType: dataSource
 ## X-RPQVersion: 1
-## X-RPQModuleTarget: MyRolePlay
-## X-Child-Of: RP_Tags
+## X-RPQModuleTarget: RP_Tags
+## X-Child-Of: RP_Friends
 
 load.xml

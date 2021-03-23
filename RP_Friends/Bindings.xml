@@ -1,0 +1,8 @@
+<Bindings>
+  <Binding name="RP_FRIENDS_FRIENDSLIST" header="RP_FRIENDS" category="ADDONS">
+    RP_FRIENDS.keybinds.friendsList();
+  </Binding>
+  <Binding name="RP_FRIENDS_OPTIONS" category="ADDONS">
+    RP_FRIENDS.keybinds.options();
+  </Binding>
+</Bindings>

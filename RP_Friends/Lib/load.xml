@@ -1,0 +1,14 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
+	
+        <Script  file="LibStub\LibStub.lua"                           />
+        <Script  file="LibRealmInfo\LibRealmInfo.lua"                 />
+        <Include file="LibTourist-3.0\lib.xml"                        />
+        <Script  file="libdatabroker-1-1\LibDataBroker-1.1.lua"       />
+        <Include file="LibMSP\LibMSP.xml"                             />
+        <Include file="LibDBIcon-1.0\embeds.xml"                      />
+        <Script  file="LibDBIcon-1.0\LibDBIcon-1.0\LibDBIcon-1.0.lua" />
+        <Script  file="LibCustomGlow-1.0\LibCustomGlow-1.0.lua"       />
+
+</Ui>

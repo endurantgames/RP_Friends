@@ -1,0 +1,9 @@
+## Interface: 90005
+## Version: 9.0.5.0 beta 1
+## Title: |cffdd33aarp|r|cff33bb99Friends|r
+## Author: Oraibi
+## Notes: Customizable friendslist alternative for roleplayers
+## SavedVariables: RP_FriendsDB
+## OptionalDeps: totalRP3, MyRolePlay, RP_Tags
+
+load.xml

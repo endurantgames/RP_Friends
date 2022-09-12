@@ -1,5 +1,5 @@
-## Interface: 90005
-## Version: 9.0.5.0 beta 1
+## Interface: 90207
+## Version: 9.0.2.7 alpha 0
 ## Title: rp|cffdd33aaFriends|r Data Source Module: MyRolePlay
 ## Author: Oraibi-MoonGuard
 ## Notes: rp|cffdd33aaFriends|r integration module for MyRolePlay
@@ -10,6 +10,10 @@
 ## X-RPQModuleType: dataSource
 ## X-RPQVersion: 1
 ## X-RPQModuleTarget: MyRolePlay
+## X-RPQTargetVersion: 9.0.2.7
 ## X-Child-Of: RP_Friends
+## X-VersionDate: 2022-09-11
+## X-RPQTargetURL: https://www.curseforge.com/wow/addons/my-role-play
+## X-RPQTargetVersionDate: 2022-09-11
 
 load.xml

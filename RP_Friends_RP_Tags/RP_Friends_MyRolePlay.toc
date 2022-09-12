@@ -1,5 +1,5 @@
-## Interface: 90005
-## Version: 9.0.5.0 beta 1
+## Interface: 90207
+## Version: 9.0.2.7 alpha 0
 ## Title: rp|cffdd33aaFriends|r Data Source Module: rpTags
 ## Author: Oraibi-MoonGuard
 ## Notes: rp|cffdd33aaFriends|r integration module for rpTags
@@ -11,5 +11,8 @@
 ## X-RPQVersion: 1
 ## X-RPQModuleTarget: RP_Tags
 ## X-Child-Of: RP_Friends
+## X-VersionDate: 2022-09-11
+## X-RPQTargetVersion: 9.0.2.7
+## X-RPQTargetDate: 2022-09-11
 
 load.xml

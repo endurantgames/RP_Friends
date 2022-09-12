@@ -1,5 +1,5 @@
-## Interface: 90005
-## Version: 9.0.5.0 beta 1
+## Interface: 90207
+## Version: 9.0.2.7 alpha 0
 ## Title: rp|cff33bb99Friends|r
 ## Author: Oraibi
 ## Notes: Customizable friendslist alternative for roleplayers
@@ -10,6 +10,7 @@
 ## X-RPQVersion: 1.004
 ## X-RPQModuleID: rpfriends
 ## X-RPQModuleType: core
-## X-VersionDate: 2021-03-23
+## X-VersionDate: 2022-09-11
+## X-RPQTargetVersion: 9.0.2.7
 
 load.xml
